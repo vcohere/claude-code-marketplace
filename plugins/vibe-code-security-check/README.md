@@ -32,6 +32,8 @@ From any Claude Code session with your project open:
 
 Claude Code runs every check in `checks/` against your codebase and returns one consolidated report grouped by category, most severe findings first.
 
+**When to run it:** treat this like a pre-launch or pre-release sweep, not a daily tool. Running 31 checks in one pass is context-intensive — it reads broadly across your codebase for each check, which adds up. Good trigger points: before you go live, after a significant feature addition, or when you onboard a new backend integration. For routine development, run individual checks instead (see below).
+
 ### Run a single check
 
 Open any file under [`checks/`](./skills/vibe-code-security-check/checks/), copy its full contents, and paste it to Claude Code with your project open. Each check is self-contained — no setup needed.
@@ -54,6 +56,10 @@ Open any file under [`checks/`](./skills/vibe-code-security-check/checks/), copy
 | Logging & PII Leakage             |      2 | Whether errors and logs leak internals, secrets, or personal data.                                            |
 | Dependency & Supply Chain         |      1 | Whether shipped dependencies carry known-exploitable vulnerabilities.                                         |
 | Deployment & Infra Config         |      3 | Whether production config (CORS, headers, debug mode) leaves a gap.                                          |
+
+## Why detection only, no fixes
+
+Security fixes are surgical — the right change depends on context, framework, and choices only you know. Auto-applying fixes without review creates a different risk: a change that looks correct in isolation but breaks surrounding logic, or silently alters behavior you were relying on. The report gives you the exact location and what it means in practice; from there you decide how to fix it, and can ask Claude to help with specific findings one at a time in a fresh session. Keeping sweep and fix separate also makes the report easier to audit and share with a team.
 
 ## Who made this
 
