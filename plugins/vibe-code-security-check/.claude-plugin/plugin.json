@@ -1,0 +1,11 @@
+{
+  "name": "vibe-code-security-check",
+  "displayName": "Vibe Code Security Check",
+  "description": "31 focused security checks for apps built with AI and low-code tools (Lovable, Bolt, Replit, v0, Cursor). Runs as a full sweep or one check at a time.",
+  "version": "1.0.0",
+  "author": { "name": "Logique", "email": "valentincohere@gmail.com" },
+  "homepage": "https://logique.io",
+  "repository": "https://github.com/vcohere/claude-code-marketplace",
+  "license": "MIT",
+  "keywords": ["security", "vibe-coding", "audit", "lovable", "bolt", "supabase", "firebase"]
+}

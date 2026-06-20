@@ -1,22 +1,22 @@
 ---
 name: vibe-code-security-check
-description: Run a full security check sweep across every prompt in this repo's prompts/ directory against the current codebase, aggregate the results, and produce one consolidated plain-language report grouped and ordered by severity. Use when someone wants a complete security pass rather than running individual check files one at a time.
+description: Run a full security check sweep across every check in this repo's checks/ directory against the current codebase, aggregate the results, and produce one consolidated plain-language report grouped and ordered by severity. Use when someone wants a complete security pass rather than running individual check files one at a time.
 ---
 
 # Vibe Code Security Check
 
-Run every check defined in this repo's `prompts/` directory against the current codebase and produce a single consolidated report. This skill is detection and reporting only.
+Run every check defined in this repo's `checks/` directory against the current codebase and produce a single consolidated report. This skill is detection and reporting only.
 
 ## Scope
 
-- **Checks** live in this skill repo, under `prompts/` (one `.md` file per check, in category subfolders). Each file carries `category`, `severity`, and `prevalence` in YAML frontmatter at the top.
+- **Checks** live in this skill repo, under `checks/` (one `.md` file per check, in category subfolders). Each file carries `category`, `severity`, and `prevalence` in YAML frontmatter at the top.
 - **The target** of every check is the _current codebase the agent is sitting in_ — the user's project — not this skill repo.
 
 ## Procedure
 
 ### 1. Discover the checks dynamically
 
-Enumerate every `.md` file under `prompts/`, recursively, at run time. Do not hardcode filenames, ids, or counts — the set of checks is whatever exists on disk at the moment of the run, so files added or removed later are picked up automatically. For each file, derive its id from the filename without the `.md` extension and read its `category`, `severity`, and `prevalence` from the file's YAML frontmatter.
+Enumerate every `.md` file under `checks/`, recursively, at run time. Do not hardcode filenames, ids, or counts — the set of checks is whatever exists on disk at the moment of the run, so files added or removed later are picked up automatically. For each file, derive its id from the filename without the `.md` extension and read its `category`, `severity`, and `prevalence` from the file's YAML frontmatter.
 
 ### 2. Run each check
 
