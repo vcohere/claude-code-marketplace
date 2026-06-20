@@ -4,28 +4,22 @@
 
 ## Install
 
-### Via marketplace
+Add the marketplace and install the plugin directly in Claude Code:
 
-```bash
-git clone https://github.com/vcohere/claude-code-marketplace.git .claude/logique-marketplace
-mkdir -p .claude/commands
-
-cat > .claude/commands/vibe-code-security-check.md << 'EOF'
-Follow the instructions in .claude/logique-marketplace/plugins/vibe-code-security-check/skills/vibe-code-security-check/SKILL.md.
-The checks/ folder referenced in that file is at .claude/logique-marketplace/plugins/vibe-code-security-check/skills/vibe-code-security-check/checks/.
-EOF
+```
+/plugin marketplace add vcohere/claude-code-marketplace
+/plugin install vibe-code-security-check@logique-marketplace
 ```
 
-### Manual (plugin only)
+### Or clone locally for development
 
 ```bash
-git clone https://github.com/vcohere/claude-code-marketplace.git .claude/logique-marketplace
-mkdir -p .claude/commands
+git clone https://github.com/vcohere/claude-code-marketplace.git
+cd claude-code-marketplace
 
-cat > .claude/commands/vibe-code-security-check.md << 'EOF'
-Follow the instructions in .claude/logique-marketplace/plugins/vibe-code-security-check/skills/vibe-code-security-check/SKILL.md.
-The checks/ folder referenced in that file is at .claude/logique-marketplace/plugins/vibe-code-security-check/skills/vibe-code-security-check/checks/.
-EOF
+/plugin marketplace add ./
+
+/plugin install vibe-code-security-check@logique-marketplace
 ```
 
 ## Usage
@@ -37,8 +31,6 @@ From any Claude Code session with your project open:
 ```
 
 Claude Code runs every check in `checks/` against your codebase and returns one consolidated report grouped by category, most severe findings first.
-
-To update: `git -C .claude/logique-marketplace pull`
 
 ### Run a single check
 

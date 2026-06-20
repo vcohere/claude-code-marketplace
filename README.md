@@ -2,13 +2,30 @@
 
 A Claude Code marketplace of security and code-quality skills, maintained by [Logique](https://logique.io).
 
-## Quick install
+## Quick Start
 
-```bash
-git clone https://github.com/vcohere/claude-code-marketplace.git .claude/logique-marketplace
+### Add this marketplace to Claude Code
+
+```
+/plugin marketplace add vcohere/claude-code-marketplace
 ```
 
-Then follow the install instructions in each plugin's README to wire up the skill command.
+### Install a plugin
+
+```
+/plugin install vibe-code-security-check@logique-marketplace
+```
+
+### Or clone locally for development
+
+```bash
+git clone https://github.com/vcohere/claude-code-marketplace.git
+cd claude-code-marketplace
+
+/plugin marketplace add ./
+
+/plugin install vibe-code-security-check@logique-marketplace
+```
 
 ---
 
